@@ -1,0 +1,30 @@
+schema: '2.0'
+stages:
+  create_dataset:
+    cmd: python src/create_dataset.py
+    deps:
+    - path: src/create_dataset.py
+      hash: md5
+      md5: 161c843b976a86d0ec15030eb7056faf
+      size: 317
+    outs:
+    - path: data/breast_cancer.csv
+      hash: md5
+      md5: 24d9881fad8cfb3d94f5276d372e422b
+      size: 121955
+  train_model:
+    cmd: python src/train.py
+    deps:
+    - path: data/breast_cancer.csv
+      hash: md5
+      md5: 24d9881fad8cfb3d94f5276d372e422b
+      size: 121955
+    - path: src/train.py
+      hash: md5
+      md5: d9e9d963968461de6e4c64ef4ec2bd78
+      size: 723
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: 0c5189c4fa278b9b12fdbc4011f792b7
+      size: 325017
