@@ -1,4 +1,8 @@
 [core]
-    remote = storage
+    remote = dagshub
 ['remote "storage"']
     url = ../dvc_storage
+['remote "dagshub"']
+    url = https://dagshub.com/nishnarudkar/DVC_Implementation_MLOPS.dvc
+    auth = basic
+    user = nishnarudkar

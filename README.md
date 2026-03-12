@@ -41,6 +41,44 @@ This project showcases a complete ML pipeline with version control for data and 
 - pip or conda package manager
 - Git (for version control)
 
+## DagHub Integration
+
+This project is integrated with DagHub for experiment tracking, data versioning, and collaboration.
+
+### Setting Up DagHub Connection
+
+1. **Create a DagHub account** at [dagshub.com](https://dagshub.com)
+
+2. **Create a new repository** on DagHub or connect an existing one
+
+3. **Configure DVC remote storage** with DagHub:
+   ```bash
+   dvc remote add origin https://dagshub.com/<username>/<repo-name>.dvc
+   dvc remote modify origin --local auth basic
+   dvc remote modify origin --local user <your-dagshub-username>
+   dvc remote modify origin --local password <your-dagshub-token>
+   ```
+
+4. **Configure Git remote** (if not already set):
+   ```bash
+   git remote add origin https://dagshub.com/<username>/<repo-name>.git
+   ```
+
+5. **Push your code and data**:
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git push -u origin main
+   
+   dvc push
+   ```
+
+### Getting Your DagHub Token
+
+1. Go to [dagshub.com/user/settings/tokens](https://dagshub.com/user/settings/tokens)
+2. Create a new token with appropriate permissions
+3. Use this token as your password in the DVC remote configuration
+
 ## Installation
 
 1. **Clone the repository**
